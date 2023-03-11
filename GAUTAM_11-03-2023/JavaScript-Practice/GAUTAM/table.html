@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DEMO Project</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+
+<style>
+  html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  background-color: lightgrey;
+  padding: 20px;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 5px
+}
+</style>
+
+
+<body>
+  <header class="header"><h4>Header</h4></header>
+  <div class="content">
+    <h2>Table</h2>
+    <!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body>
+
+<h2>Cell that spans two columns</h2>
+<p>To make a cell span more than one column, use the colspan attribute.</p>
+  <table style="width:100%">
+    <tr>
+      <th colspan="2">Name</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <td>Jill</td>
+      <td>Smith</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td>57</td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <!-- rowsapn -->
+  <table>
+    <thead>
+      <tr>
+        <th>Month</th>
+        <th>Savings</th>
+        <th rowspan="3">Savings for holiday!</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>January</td>
+        <td>$100</td>
+        <td rowspan="0">$100</td>
+      </tr>
+      <tr>
+        <td>February</td>
+        <td>$80</td>
+      </tr>
+    </tbody>
+    </table>
+  <!--End of rowsapn -->
+</body>
+</html>
+</div>
+<footer class="footer"><h4>Footer</h4></footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+
+
+

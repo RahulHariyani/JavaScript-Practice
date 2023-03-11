@@ -1,0 +1,56 @@
+//form elements
+<input>
+<label>
+<select>
+<option>
+<textarea>
+<button>
+<radio>
+<checkbox>
+<fieldset>
+<legend>
+
+
+//Tags
+Block Level Elements
+<article>
+<aside>
+<blockquote>
+<canvas>
+<div>
+<fieldset>
+<footer>
+<form>
+<h1>-<h6>
+<header>
+<hr>
+<li>
+<main>
+<nav>
+
+<ol>
+<p>
+<pre>
+<section>
+<table>
+<tfoot>
+<ul>
+<video>
+
+
+//child elements == tags
+
+<a>
+<b>fhdfhdfh</b>
+<br>
+<button>
+<i>
+<img src="./" alt="logo" height= width>
+<input>
+<label>
+<select>
+<small>
+<span>
+<textarea>
+
+

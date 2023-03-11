@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DEMO Project</title>
+<link rel="stylesheet" href="./style.css">
+
+</head>
+
+
+
+<style>
+  html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  background-color: lightgrey;
+  padding: 20px;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 5px
+}
+</style>
+
+
+<body>
+  <header class="header"><h4>Header</h4></header>
+  <div class="content">
+    <h2>Form Element</h2>
+
+    <form>
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value="Gautam"><br><br>
+
+      <select id="cars" name="cars">
+        <option value="0">--select car--</option>
+        <option value="1">Saab</option>
+        <option value="2">abc</option>
+        <option value="3">Fiat</option>
+        <option value="4">Audi</option>
+      </select>
+
+      <textarea name="message" >
+        The cat was playing in the garden.
+      </textarea>
+
+
+      <fieldset>
+        <legend>Personalia:</legend>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+      </fieldset>
+
+      <input type="radio" id="html" name="fav_language" checked value="HTML">
+      <label for="html">HTML</label><br>
+      <input type="radio" id="css" name="fav_language" value="CSS">
+      <label for="css">CSS</label><br>
+      <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+      <label for="javascript">JavaScript</label><br><br>
+      
+    <input type="checkbox" id="vehicle1" name="vehicle1" checked value="Bike">
+    <label for="vehicle1"> I have a bike</label><br>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+    <label for="vehicle2"> I have a car</label><br>
+    <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+    <label for="vehicle3"> I have a boat</label>
+
+      <input type="submit" value="Submit">
+      <!-- <button type="button" onclick="alert('Hello World!')">Click Me!</button> -->
+
+    </form>
+  </div>
+  <footer class="footer"><h4>Footer</h4></footer>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
