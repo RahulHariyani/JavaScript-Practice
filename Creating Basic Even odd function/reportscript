@@ -1,0 +1,67 @@
+Import-Function -Name Set-Workflow-Paths
+#intialize
+$workflows = Get-ChildItem -Path $workflowFolder 
+$options = [ordered]@{}
+$options.Add("Select workflow", "")
+foreach($workflow in $workflows)
+{
+$options +=@{ $workflow.DisplayName= $workflow.ID }
+}
+$props = @{
+        Parameters = @(
+            @{Name="selectedOption"; Title="Workflow: "; Options=$options; Tooltip=""}
+        )
+        Title = "Workflow Report"
+        Description = "Choose the workflow to generate report."
+        Width = 300
+        Height = 300
+        ShowHints = $true
+}
+$click=Read-variable @props
+if($click -eq "ok"){
+    if($selectedOption -ne $null){
+        try{
+        $selectedWorkflowItem=Get-Item $selectedOption
+        $wfName=$selectedWorkflowItem.Name
+        #$query = "fast:/sitecore/content//*[@__Workflow='$selectedOption']"
+    #$itemList = Get-Item -Path "master:" -Query $query
+    
+        $query = "fast:/sitecore//*"
+     $itemList=Get-Item -Path "master:" -Query $query | Where-Object { $_.__Workflow -eq "$selectedOption"} 
+ 
+    if($itemList.Count -eq 0) {
+        Show-Alert "There are no items in $wfName"
+    } else {
+        $props = @{
+            Title = "Report for $wfName workflow"
+            InfoTitle = "Items in $wfName"
+            InfoDescription = "Lists all items in $wfName"
+            PageSize = 25
+        }
+     
+         
+        $itemList  |
+                Show-ListView @props -Property @{Label="Name"; Expression={$_.DisplayName} },
+                    @{Label="Updated"; Expression={$_.__Updated} },
+                    @{Label="Updated by"; Expression={$_."__Updated by"} },
+                    @{Label="Created"; Expression={$_.__Created} },
+                    @{Label="Created by"; Expression={$_."__Created by"} },
+                    @{Label="Path"; Expression={$_.ItemPath} },
+                    @{Label="Workflow State"; Expression={(Get-Item -Path "master:" -ID $_."__Workflow state").Name} },
+                    @{ Name="Source"; Expression={}},
+                    @{ Name="InstallMode"; Expression={}},
+                    @{ Name="MergeMode"; Expression={}}
+              
+    }
+    }
+        catch
+        {
+            Write-Output "Ran into an issue: $($PSItem.ToString())"
+        }
+    }
+}
+elseif($click -eq "cancel")
+{
+    Show-Alert("Cancelled Report Generation")
+}
+
